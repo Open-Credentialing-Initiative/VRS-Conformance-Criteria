@@ -21,7 +21,7 @@
       specStatus: 'base',
       latestVersion: "https://open-credentialing-initiative.github.io/VRS-Conformance-Criteria/",
       shortName: 'VRS Integration Conformance Criteria',
-      publishDate: "20 Dev 2022",
+      publishDate: "2022-12-20",
       license: 'w3c-software-doc',
       logos: [],
       lint: {
@@ -134,11 +134,11 @@
     <h2>General Terms and Abbreviations</h2>
         <ul>
           <li><dfn>Credential</dfn>: A digital assertion containing a set of claims (e.g. about a State license or FDA Establishment Identifier) made by an entity about itself or another entity. Credentials are a subset of identity data.</li>
-          <li><dfn>Digital wallet</dfn>: Software that manages enterprise identities via decentralized identifiers (DID) and Verifiable Credentials.</li>
-          <li><dfn><abbr title="Drug Supply Chain Security Act">DSCSA</abbr></dfn>(Drug Supply Chain Security Act): An act of the U.S. Congress. Find more information on the <a href="https://www.fda.gov/drugs/drug-supply-chain-integrity/drug-supply-chain-security-act-dscsa">FDA website</a>.</li> 
-          <li><dfn><abbr title="Verification Router Service">VRS</abbr></dfn>(Verification Router Service): Provides product identifier (PI) verification routing and PI verification request and response services. The VRS can act on behalf of the credential holder (when generating a verifiable presentation) or the credential verifier (when verifying a verifiable presentation).</li>
           <li><dfn>corrUUID</dfn> (Correlation Universally Unique Identifier): A unique ID for a set of transactions.</li>
-          <li>Verifiable Presentation: A digital presentation that is created from verifiable credential data in order to be shared with a verifier.</li>
+          <li><dfn>Digital wallet</dfn>: Software that manages enterprise identities via decentralized identifiers (DID) and Verifiable Credentials.</li>
+          <li><dfn><abbr title="Drug Supply Chain Security Act">DSCSA</abbr></dfn>(Drug Supply Chain Security Act): An act of the U.S. Congress. Find more information on the <a href="https://www.fda.gov/drugs/drug-supply-chain-integrity/drug-supply-chain-security-act-dscsa">FDA website</a>.</li>           
+          <li><dfn>Verifiable Presentation</dfn>: A digital presentation that is created from Verifiable Credential data in order to be shared with a verifier.</li>
+          <li><dfn><abbr title="Verification Router Service">VRS</abbr></dfn>(Verification Router Service): Provides product identifier (PI) verification routing and PI verification request and response services. The VRS can act on behalf of the credential holder (when generating a verifiable presentation) or the credential verifier (when verifying a verifiable presentation).</li>        
         </ul>
   </section>       
   <!-- T&C -->  
@@ -149,8 +149,8 @@
       VRS providers SHALL integrate the digital wallet REST APIs by establishing a secure authentication via OAuth2.0 bearer token and encryption via SSL TLS v1.2+. The Connection SHALL be REST on HTTPS.<br><br>
       VRS providers SHALL have measures in place to facilitate their access to the following wallet APIs:</p>
       <ul>
-        <li>Generating a “Verifiable Presentation” API (refer to <a href="https://open-credentialing-initiative.github.io/Digital-Wallet-Conformance-Criteria/latest/#api-to-generate-a-verifiable-presentation-of-atp-credential">OCI Digital Wallet Conformance Criteria</a>)</li>
-        <li>Verify a signed “Verifiable Presentation” API  (refer to <a href="https://open-credentialing-initiative.github.io/Digital-Wallet-Conformance-Criteria/latest/#api-to-verify-verifiable-presentation-of-atp-credential">OCI Digital Wallet Conformance Criteria</a>)</li>
+        <li>Generating a <a>Verifiable Presentation</a> API (refer to <a href="https://open-credentialing-initiative.github.io/Digital-Wallet-Conformance-Criteria/latest/#api-to-generate-a-verifiable-presentation-of-atp-credential">OCI Digital Wallet Conformance Criteria</a>)</li>
+        <li>Verify a signed <a>Verifiable Presentation</a> API  (refer to <a href="https://open-credentialing-initiative.github.io/Digital-Wallet-Conformance-Criteria/latest/#api-to-verify-verifiable-presentation-of-atp-credential">OCI Digital Wallet Conformance Criteria</a>)</li>
       </ul>
   </section> 
   <section>
@@ -173,7 +173,7 @@
   </section> 
   <section>
     <h2>Audit Logs & Data Retention</h2>
-    <p>VRS SHALL maintain auditable logs of Verifiable Presentation generation and verification requests and responses.</p>
+    <p>VRS SHALL maintain auditable logs of <a>Verifiable Presentation</a> generation and verification requests and responses.</p>
   </section> 
 </body>
 
