@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
+
+  <title>VRS Integration Conformance Criteria</title>
+  <h2 id="subtitle">v1.0.0</h2>
+  
+  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+  <script type="text/javascript" class="remove">
+    var respecConfig = {
+      specStatus: 'base',
+      latestVersion: "https://open-credentialing-initiative.github.io/VRS-Conformance-Criteria/",
+      shortName: 'VRS Integration Conformance Criteria',
+      publishDate: "2022-12-20",
+      license: 'w3c-software-doc',
+      logos: [],
+      lint: {
+        "check-punctuation": true,
+        "no-http-props": true
+      },
+      editors: [
+       {
+          name: 'Dr. Carsten Stöcker',
+          url: 'https://www.linkedin.com/in/dr-carsten-st%C3%B6cker-1145871/',
+          company: 'Spherity',
+          companyURL: 'https://spherity.com/',
+        },
+        {
+          name: 'Lauritz Leifermann',
+          url: 'https://twitter.com/LLeifermann',
+          company: 'Spherity',
+          companyURL: 'https://spherity.com/',
+        },
+        {
+          name: 'Dr. Christiane Wirrig',
+          url: 'https://www.linkedin.com/in/chriswirrig/',
+          company: 'Spherity',
+          companyURL: 'https://spherity.com/',
+        },
+        {
+          name: 'Elizabeth Waldorf',
+          url: 'https://www.linkedin.com/in/elizabethwaldorf/',
+          company: 'TraceLink',
+          companyURL: 'https://www.tracelink.com/',
+        },
+        {
+          name: 'Alex Colgan',
+          url: 'https://www.linkedin.com/in/alexcolgan/',
+          company: 'LedgerDomain',
+          companyURL: 'https://ledgerdomain.com/',
+        },
+      ],
+      github: "https://github.com/Open-Credentialing-Initiative/VRS-Conformance-Criteria",
+      logos: [
+        {
+          src: "https://avatars.githubusercontent.com/u/79323216?s=200&v=4",
+          url: "https://github.com/Open-Credentialing-Initiative/VRS-Conformance-Criteria",
+          alt: "OCI Logo",
+          width: 100,
+          height: 100,
+          id: "OCI-logo",
+        },
+      ],
+      otherLinks: [
+        {
+          key: "Document Status",
+          data: [
+            {
+              value: "Approved",
+            },
+          ],
+        },
+      ],
+      maxTocLevel: 2
+    };
+  </script>
+  <style>
+    body {
+      background: white !important;
+    }
+
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="copyright">Copyright © 2022 Named editors. Contributors to the Open Credentialing Initiative.</p>
+  <!-- sotd -->
+  <section>
+    <h2>Status of this Document</h2>
+    <p>
+      This section describes the status of this document at the
+      time of its publication. Other documents may supersede this document.
+    </p>
+    <p>This is a living OCI Document developed by OCI Members with input
+      from relevant interested parties. It is anticipated that the contents of this document will be reviewed and
+      updated to address any applicable feedback. A list of current public OCI Documents, including Conformance 
+      Criteria, can be found in <a href="https://github.com/Open-Credentialing-Initiative">OCI's GitHub repositories</a>.
+    </p>
+  </section>
+  <!-- Abstract -->
+  <section id="abstract">
+    <p>
+      This document lays out the conformance criteria for service providers who wish to be recognized by the 
+      Open Credentialing Initiative (OCI) as Verification Router Service (VRS) providers.
+    </p>
+  </section>
+  <!-- Intro -->
+  <section>
+    <h2>Intended Audience</h2>
+      <p>
+        The publication is intended for <b>Verification Router Service (<a>VRS</a>)</b> providers who wish to implement 
+        Authorized Trading Partner (ATP) credentialing in an Open Credentialing Initiative (OCI)-compliant way under 
+        the US Drug Supply Chain Security Act (<a>DSCSA</a>). Implementation means the integration of OCI trust architecture 
+        components with the VRS system. <br><br>
+        This document provides a specification of the Conformance Criteria for a VRS provider. 
+        For a general introduction to OCI, please refer to our <a href="https://open-credentialing-initiative.github.io/getting-started">Getting Started guide</a> or the <a href="https://www.oc-i.org/">Open Credentialing Initiative website</a>.
+      </p>
+  </section>
+  <!-- Conformance -->
+  <section id="conformance">
+    <h2>General Terms and Abbreviations</h2>
+        <ul>
+          <li><dfn>Credential</dfn>: A digital assertion containing a set of claims (e.g. about a State license or FDA Establishment Identifier) made by an entity about itself or another entity. Credentials are a subset of identity data.</li>
+          <li><dfn>corrUUID</dfn> (Correlation Universally Unique Identifier): A unique ID for a set of transactions.</li>
+          <li><dfn>Digital wallet</dfn>: Software that manages enterprise identities via decentralized identifiers (DID) and Verifiable Credentials.</li>
+          <li><dfn><abbr title="Drug Supply Chain Security Act">DSCSA</abbr></dfn> (Drug Supply Chain Security Act): An act of the U.S. Congress. Find more information on the <a href="https://www.fda.gov/drugs/drug-supply-chain-integrity/drug-supply-chain-security-act-dscsa">FDA website</a>.</li>           
+          <li><dfn>Verifiable Presentation</dfn>: A digital presentation that is created from Verifiable Credential data in order to be shared with a verifier.</li>
+          <li><dfn><abbr title="Verification Router Service">VRS</abbr></dfn> (Verification Router Service): Provides product identifier (PI) verification routing services. The VRS can act on behalf of the credential holder (when generating a verifiable presentation) or the credential verifier (when verifying a verifiable presentation).</li>        
+        </ul>
+  </section>       
+  <!-- T&C -->  
+  <section>
+    <h2>Wallet API Integration and Authentication</h2>
+    <p>In accordance with the <a href="https://open-credentialing-initiative.github.io/Digital-Wallet-Conformance-Criteria/latest/">Digital Wallet Conformance Criteria</a>, all <a>digital wallets</a> provide the same APIs for creating and verifying ATP <a>Credential</a> Presentations. <a>VRS</a> providers integrate these APIs in accordance with the latest <em>OCI Interoperability Profile</em>. Refer to the published <a href="https://www.oc-i.org/resources">OCI resources</a> for details.<br><br>
+      VRS providers SHALL only integrate wallets that are compliant with the OCI digital wallet conformance criteria. The OCI conformance programme lays out how compliance with the OCI digital wallet conformance criteria will be verified and compliant wallets made well-known to the VRS provider. <br><br>      
+      VRS providers SHALL integrate the digital wallet REST APIs by establishing a secure authentication via OAuth2.0 bearer token and encryption via SSL TLS v1.2+. The Connection SHALL be REST on HTTPS.<br><br>
+      VRS providers SHALL have measures in place to facilitate their access to the following wallet APIs:</p>
+      <ul>
+        <li>Generating a <a>Verifiable Presentation</a> API (refer to <a href="https://open-credentialing-initiative.github.io/Digital-Wallet-Conformance-Criteria/latest/#api-to-generate-a-verifiable-presentation-of-atp-credential">OCI Digital Wallet Conformance Criteria</a>)</li>
+        <li>Verify a signed <a>Verifiable Presentation</a> API  (refer to <a href="https://open-credentialing-initiative.github.io/Digital-Wallet-Conformance-Criteria/latest/#api-to-verify-verifiable-presentation-of-atp-credential">OCI Digital Wallet Conformance Criteria</a>)</li>
+      </ul>
+  </section> 
+  <section>
+    <h2>Mapping of each VRS customer to their respective digital wallet</h2>
+    <p>Given that VRS providers serve multiple customers, it may be expected that providers will need to integrate one or more digital wallet solutions. The mapping of each VRS customer to the respective customer digital wallet account is a critical factor in a secure integration.<br><br>
+      When a VRS provider is connected to a wallet solution with one or multiple customer accounts, the VRS provider SHALL ensure that each of its internal customer accounts has the ability to designate and maintain its digital wallet solution. The association of a VRS customer to a digital wallet will be maintained through customer configuration. 
+      </p>
+  </section> 
+  <section>
+    <h2>Wallet Interoperability & Integration Testing</h2>
+    <p>There are multiple potential VRS-wallet combinations. Interoperability testing supports the frictionless implementation of technology standards in the context of identity and trust as an ecosystem solution.  OCI recommends use of its OCI’s published test case resources when designing interoperability test activities. Each OCI Digital Wallet provider SHALL ensure interoperability with other OCI Digital Wallets enabling VRS solution providers to seamlessly integrate with OCI Digital Wallet providers according to the APIs defined in the OCI Digital Wallet Conformance Criteria.</p>
+  </section> 
+  <section>
+    <h2>End-to-end Correlatability</h2>
+    <p>The VRS provider SHALL send the <a>corrUUID</a> received in the VRS request and response messages to the digital wallet (via the Wallet API).</p>
+  </section> 
+  <section>
+    <h2>Latency Improvements</h2>
+    <p>The VRS and Digital Wallet integration design SHOULD be optimized to minimize latency.</p>
+  </section> 
+  <section>
+    <h2>Audit Logs & Data Retention</h2>
+    <p>VRS SHALL maintain auditable logs of <a>Verifiable Presentation</a> generation and verification requests and responses.</p>
+  </section> 
+</body>
+
+</html>
